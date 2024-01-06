@@ -9,4 +9,13 @@ const Todo = ({ todo, onDelete }) => {
     );
 };
 
+const TodoEdit = ({todo, onEdit}) => {
+    return (
+    <div>
+        {todo.text}
+        <button onClick={() => onEdit(todo.id)}>Edit</button>
+    </div>
+    );
+};
+
 export default Todo;

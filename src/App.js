@@ -16,6 +16,14 @@ const App = () => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const editTodo = () => {
+    if (text.trim() !== '') {
+      setTodos([...todos, {id: Date.now(), text }]);
+      setText('');
+    }
+  };
+
+
   return (
     <div>
       <h1>ToDo List</h1>
@@ -29,6 +37,11 @@ const App = () => {
       <div>
         {todos.map((todo) => (
           <Todo key={todo.id} todo={todo} onDelete={deleteTodo} />
+        ))}
+      </div>
+      <div>
+        {todos.map((todo) => (
+          <Todo key={todo.id} todo={todo} onEdit={editTodo}/>
         ))}
       </div>
     </div>
